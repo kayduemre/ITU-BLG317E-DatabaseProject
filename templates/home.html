@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{%for row in context['books']%}
+  
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title">Title: {{row['title']}}</h5>
+        <p class="card-text">Author: {{row['author']}}</p>
+        <p class="card-text">Summary: {{row['summary']}}</p>
+        <p class="card-text">Publisher: {{row['publisher']}}</p>
+        <p class="card-text">Price: {{row['price']}}</p>
+        <p class="card-text">VOTE: {{row['vote']}}</p>
+        <div class="row">
+          <div class="col">
+            
+            <div class="dropdown" style="margin: 5px;">
+              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Buy
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for item in context['category']%}
+                <a class="dropdown-item" href="{{url_for('buy', category_id=item['id'], account_id=item['account_id'], book_id=row['id'])}}">{{item['name']}}</a>
+                {%endfor%}
+              </div>
+
+              <div class="dropdown" style="margin: 5px;">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Barrow
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {%for item in context['category']%}
+                  <a class="dropdown-item" href="{{url_for('barrow', category_id=item['id'], account_id=item['account_id'], book_id=row['id'])}}">{{item['name']}}</a>
+                  {%endfor%}
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  {%endfor%}
+{% endblock %}

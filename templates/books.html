@@ -1,0 +1,23 @@
+{% extends 'library.html'%}
+{% block book %}
+  {%for row in context['books']%}
+  
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title">Title: {{row['title']}}</h5>
+        <p class="card-text">Author: {{row['author']}}</p>
+        <p class="card-text">Summary: {{row['summary']}}</p>
+        <p class="card-text">Publisher: {{row['publisher']}}</p>
+        <p class="card-text">Price: {{row['price']}}</p>
+        <p class="card-text">VOTE: {{row['vote']}}</p>
+        <div class="row">
+          <div class="col">
+            <a href="{{url_for('comments',comment_id=row['id'])}}" class="btn btn-primary" role="button" style="margin: 5px;">Comments</a>
+            <a href="{{url_for('deletebook',book_id=row['id'])}}" class="btn btn-danger" role="button" style="margin: 5px;">Delete</a>
+          </div>
+          <a href="{{url_for('comments',comment_id='1')}}" class="btn btn-outline-secondary" role="button" style="margin: 5px;">Update</a>
+        </div>
+      </div>
+    </div>
+  {%endfor%}
+{% endblock %}

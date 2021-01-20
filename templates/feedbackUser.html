@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body" >
+            <form method="POST">
+                <h5>Protect Books</h5>
+                <fieldset id="protect" name="protect">
+                    <label for="">1</label>
+                    <input type="radio" value="1" name="protect">
+                    <label for="">2</label>
+                    <input type="radio" value="2" name="protect">
+                    <label for="">3</label>
+                    <input type="radio" value="3" name="protect">
+                    <label for="">4</label>
+                    <input type="radio" value="4" name="protect">
+                    <label for="">5</label>
+                    <input type="radio" value="5" name="protect">
+                </fieldset>
+
+                <h5>Reliability</h5>
+                <fieldset id="reliability" name="reliability">
+                    <label for="">1</label>
+                    <input type="radio" value="1" name="reliability">
+                    <label for="">2</label>
+                    <input type="radio" value="2" name="reliability">
+                    <label for="">3</label>
+                    <input type="radio" value="3" name="reliability">
+                    <label for="">4</label>
+                    <input type="radio" value="4" name="reliability">
+                    <label for="">5</label>
+                    <input type="radio" value="5" name="reliability">
+                </fieldset>
+
+                <h5>Delivery</h5>
+                <fieldset id="Delivery" name="Delivery">
+                    <label for="">1</label>
+                    <input type="radio" value="1" name="Delivery">
+                    <label for="">2</label>
+                    <input type="radio" value="2" name="Delivery">
+                    <label for="">3</label>
+                    <input type="radio" value="3" name="Delivery">
+                    <label for="">4</label>
+                    <input type="radio" value="4" name="Delivery">
+                    <label for="">5</label>
+                    <input type="radio" value="5" name="Delivery">
+                </fieldset>
+              <button class="btn btn-success" type="submit">send </button>
+              </form>
+        </div>
+      </div>
+    
+    
+</body>
+</html>
+<script>
+    var validateInputs = function validateInputs(inputs) {
+  var validForm = true;
+  inputs.each(function(index) {
+    var input = $(this);
+    if (!input.val() || (input.type === "radio" && !input.is(':checked'))) {
+      $("#Delivery").attr("disabled", "disabled");
+      validForm = false;
+    }
+  });
+  return validForm;
+}
+
+inputs.change(function() {
+  if (validateInputs(inputs)) {
+    $("#Delivery").removeAttr("disabled");
+  }
+});
+</script>

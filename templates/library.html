@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" style="justify-content: center;">
+        <h1>Libraray</h1>
+    </div>
+    
+    <header>
+        <nav class="navbar " aria-label="main navigation" style="justify-content: center;">
+          <div class="navbar-brand">
+            {% if context['flag'] == 0%}
+
+            <div class="alert alert-danger" role="alert">
+              {{context['message']}}
+            </div>
+            {%endif%}
+            
+            {% if context['flag']==1 %}
+              {%for row in context['data']%}
+              <span class="navbar-item" style="margin: 5px;">
+                
+                <a class="button is-link" href="{{url_for('library',category_id=row[0])}}" >{{row[3]}}</a>
+              </span>
+              {%endfor%}
+            {%endif%}
+          </div>
+        </nav>
+      </header>
+
+      <section class="container" style="justify-content: center;">
+          <div class="row justify-content-md-center" >
+              <div class="col" >
+                  <form method="POST">
+                      <div class="label" style="margin: 5px;">
+                          <label>Create Category</label><br>
+                          <input type="text" placeholder="Title" id="title" name="title">
+                      </div>
+                    <button class="btn btn-success" type="submit"> Create Category</button>
+                  </form>
+                  {% if context['flag'] == 1%}
+                    <div class="label" style="margin: 5px;">
+                      <a class="btn btn-success" href="{{url_for('book')}}" role="button">Create Book</a>
+                    </div>
+                {%endif%}
+                  
+              </div>
+              <div class="col">
+                <div class="col" >
+                {% block book %}
+                  {% endblock %}
+              </div>
+
+              </div>
+            
+          </div>
+        
+      </section>
+    
+</body>
+</html></html>

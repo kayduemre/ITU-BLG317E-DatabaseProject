@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col">
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['title']}}" name="title" placeholder="Title">
+            
+                    <button type="submit" name="form-title" class="btn btn-warning">Edit title</button>
+                </form>
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['author']}}" name="author" placeholder="Author">
+            
+                    <button type="submit" name="form-author" class="btn btn-warning">Edit Author</button>
+                </form>
+            
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['price']}}" name="price" placeholder="Price">
+            
+                    <button type="submit" name="form-price" class="btn btn-warning">Edit Price</button>
+                </form>
+    
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['summ']}}" name="summary" placeholder="summary">
+            
+                    <button type="submit" name="form-summary" class="btn btn-warning">Edit summary</button>
+                </form>
+    
+
+            </div>
+            <div class="col">
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['pub']}}" name="publisher" placeholder="publisher">
+            
+                    <button type="submit" name="form-publisher" class="btn btn-warning">Edit publisher</button>
+                </form>
+    
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['pageNumber']}}" name="pagenumber" placeholder="pagenumber">
+            
+                    <button type="submit" name="form-pageNumber" class="btn btn-warning">Edit Page Number</button>
+                </form>
+    
+                <form action="" method="POST">
+                    <input type="text" class="form-control mb-3" id="exampleFormControlInput1" value="{{context['language']}}" name="language"  placeholder="language">
+            
+                    <button type="submit" name="form-language" class="btn btn-warning">Edit Language</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

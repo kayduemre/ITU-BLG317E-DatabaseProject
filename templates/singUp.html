@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-4 is-offset-4">
+            <h3 class="title has-text-grey">Sing Up</h3>
+            <div class="box">
+              <form name="form" action="" method="POST">
+               
+                {% if  context["message"] %}
+                <div class="alert alert-success" role="alert">
+                  {{context["message"]}}
+                </div>
+                {%endif%}
+                {% if context["error"] %}
+                <div class="alert alert-danger" role="alert">
+                  {{context["error"]}}
+                </div>
+                {%endif%}
+                <div class="form-group">
+                    <label for="text">Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter name" id="name" name="name">
+                  </div>
+
+                <div class="form-group">
+                    <label for="email">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" id="lName" name="lName">
+                  </div>
+
+            
+                <div class="form-group">
+                  <label for="email">Email address:</label>
+                  <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">Password:</label>
+                  <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm">Confirm Password:</label>
+                    <input type="password" class="form-control" placeholder="Enter Confirm Password" id="cmfPwd" name="cmfPwd">
+                  </div>
+                
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Memberships Type</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="membership" id="gridRadios1" value="1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Free User $0
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="membership" id="gridRadios2" value="2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Monthly Membership $5
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="membership" id="gridRadios3" value="3" disabled>
+                          <label class="form-check-label" for="gridRadios3">
+                            Annual Membership $50
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
